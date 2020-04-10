@@ -1,0 +1,61 @@
+Generally speaking a list is an collection of objects.
+To be more precise: A list in Python is an ordered group of items or elements.
+It's important to notice that these list elements don't have to be of the same type.
+ It can be an arbitrary mixture of elements like numbers, strings, other lists and so on.
+ The list type is essential for Python scripts and programs, this means that you will hardly find any serious Python code without a list.
+
+The main properties of Python lists:
+    -They are ordered
+    -The contain arbitrary objects
+    -Elements of a list can be accessed by an index
+    -They are arbitrarily nestable, i.e. they can contain other lists as sublists
+    -Variable size
+    -They are mutable, i.e. the elements of a list can be changed
+
+Examples:
+
+List -> Description
+[]	 -> An empty list
+[1,1,2,3,5,8] ->	A list of integers
+[42, "What's the question?", 3.1415] ->	A list of mixed data types
+["Stuttgart", "Freiburg", "München", "Nürnberg", "Würzburg", "Ulm","Friedrichshafen", Zürich", "Wien"]	 -> A list of Strings
+[["London","England", 7556900], ["Paris","France",2193031], ["Bern", "Switzerland", 123466]]	-> A nested list
+["High up", ["further down", ["and down", ["deep down", "the answer", 42]]]]	-> A deeply nested list
+
+Tuples:
+A tuple is an immutable list, i.e. a tuple cannot be changed in any way once it has been created.
+A tuple is defined analogously to lists, except that the set of elements is enclosed in parentheses instead of square brackets.
+The rules for indices are the same as for lists. Once a tuple has been created, you can't add elements to a tuple or remove elements from a tuple.
+Where is the benefit of tuples?
+Tuples are faster than lists.
+If you know that some data doesn't have to be changed, you should use tuples instead of lists, because this protects your data against accidental changes.
+The main advantage of tuples consists in the fact that tuples can be used as keys in dictionaries, while lists can't.
+
+
+Slicing:
+So every time you want to extract part of a string or a list, you use in Python the slice operator.
+The syntax is simple. Actually it looks a little bit like accessing a single element with an index, but instead of just one number we have more, separated with a colon ":".
+We have a start and an end index, one or both of them may be missing.
+-Slicing works with three arguments as well. If the third argument is for example 3, only every third element of the list, string or tuple from the range of the first two arguments will be taken.
+If s is a sequential data type, it works like this:
+s[begin: end: step]
+
+Length:
+The length of a sequence, i.e. a list, a string or a tuple, can be determined with the function len().
+ For strings it counts the number of characters and for lists or tuples the number of elements are counted,
+ whereas a sublist counts as 1 element.
+
+
+Yet to come:
+Concatenation of Sequences
+Checking if an Element is Contained in List
+Repetitions
+The Pitfalls of Repetitions
+
+
+
+
+
+Refer: List.py
+
+
