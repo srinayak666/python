@@ -45,14 +45,398 @@ The length of a sequence, i.e. a list, a string or a tuple, can be determined wi
  For strings it counts the number of characters and for lists or tuples the number of elements are counted,
  whereas a sublist counts as 1 element.
 
+Concatenation of Sequences:
+Combining two sequences like strings or lists is as easy as adding two numbers. Even the operator sign is the same.
+The following example shows how to concatenate two strings into one:
+>>> firstname = "Homer"
+>>> surname = "Simpson"
+>>> name = firstname + " " + surname
+>>> print(name)
+Homer Simpson
+>>>
+It's as simple for lists:
+>>> colours1 = ["red", "green","blue"]
+>>> colours2 = ["black", "white"]
+>>> colours = colours1 + colours2
+>>> print(colours)
+['red', 'green', 'blue', 'black', 'white']
+The augmented assignment "+=" which is well known for arithmetic assignments work for sequences as well.
+s += t
+is syntactically the same as:
+s = s + t
+But it is only syntactically the same.
+The implementation is different: In the first case the left side has to be evaluated only once.
+Augment assignments may be applied for mutable objects as an optimization.
 
-Yet to come:
-Concatenation of Sequences
 Checking if an Element is Contained in List
+It's easy to check, if an item is contained in a sequence.
+ We can use the "in" or the "not in" operator for this purpose.
+The following example shows how this operator can be applied:
+
+>>> abc = ["a","b","c","d","e"]
+>>> "a" in abc
+True
+>>> "a" not in abc
+False
+>>> "e" not in abc
+False
+>>> "f" not in abc
+True
+>>> str = "Python is easy!"
+>>> "y" in str
+True
+>>> "x" in str
+False
+
+
 Repetitions
-The Pitfalls of Repetitions
+So far we had a "+" operator for sequences.
+There is a "*" operator available as well. Of course there is no "multiplication" between two sequences possible.
+"*" is defined for a sequence and an integer, i.e. s * n or n * s.
+It's a kind of abbreviation for an n-times concatenation, i.e.
+
+str * 4
+is the same as
+str + str + str + str
+Further examples:
+>>> 3 * "xyz-"
+'xyz-xyz-xyz-'
+>>> "xyz-" * 3
+'xyz-xyz-xyz-'
+>>> 3 * ["a","b","c"]
+['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']
+The augmented assignment for "*" can be used as well:
+s *= n is the same as s = s * n.
+
+=================================================================================================================
+A list can be seen as a stack.
+ A stack in computer science is a data structure, which has at least two operations: one which can be used to put or push data on the stack and another one to take away the most upper element of the stack.
+ The way of working can be imagined with a stack of plates.
+ If you need a plate you will usually take the most upper one.
+ The used plates will be put back on the top of the stack after cleaning.
+ If a programming language supports a stack like data structure, it will also supply at least two operations:
+
+push
+This method is used to put a new object on the stack. Depending on the point of view, we say that we "push" the object on top or attach it to the right side. Python doesn't offer - contrary to other programming languages - no method with the name "push", but the method "append" has the same functionality.
+pop
+This method returns the most upper element of the stack. The object will be removed from the stack as well.
+peek
+Some programming languages provide another method, which can be used to view what is on the top of the stack without removing this element.
+The Python list class doesn't possess such a method, because it is not needed. A peek can be simulated by accessing the element with the index -1:
+>>> lst = ["easy", "simple", "cheap", "free"]
+>>> lst[-1]
+'free'
+>>>
 
 
+pop and append
+s.append(x)
+This method appends an element to the end of the list "s".
+>>> lst = [3, 5, 7]
+>>> lst.append(42)
+>>> lst
+[3, 5, 7, 42]
+>>>
+It's import to understand that append returns "None".
+This means that it usually doesn't make sense to reassign the return value:
+>>> lst = [3, 5, 7]
+>>> lst = lst.append(42)
+>>> print(lst)
+None
+>>>
+s.pop(i)
+'pop' returns the ith element of a list s. The element will be removed from the list as well.
+>>> cities = ["Hamburg", "Linz", "Salzburg", "Vienna"]
+>>> cities.pop(0)
+'Hamburg'
+>>> cities
+['Linz', 'Salzburg', 'Vienna']
+>>> cities.pop(1)
+'Salzburg'
+>>> cities
+['Linz', 'Vienna']
+>>>
+The method 'pop' raises an IndexError exception if the list is empty or the index is out of range.
+s.pop()
+The method 'pop' can be called without an argument. In this case, the last element will be returned. So s.pop() is equivalent to s.pop(-1).
+>>> cities = ["Amsterdam", "The Hague", "Strasbourg"]
+>>> cities.pop()
+'Strasbourg'
+>>> cities
+['Amsterdam', 'The Hague']
+>>>
+
+extend
+We saw that it is easy to append an object to a list.
+But what about adding more than one element to a list? Maybe, you want to add all the elements of another list to your list.
+If you use append, the other list will be appended as a sublist, as we can see in the following example:
+
+>>> lst = [42,98,77]
+>>> lst2 = [8,69]
+>>> lst.append(lst2)
+>>> lst
+[42, 98, 77, [8, 69]]
+>>>
+What we wanted to accomplish is the following:
+[42, 98, 77, 8, 69]
+To this purpose, Python provides the method 'extend'.
+It extends a list by appending all the elements of an iterable like a list, a tuple or a string to a list:
+>>> lst = [42,98,77]
+>>> lst2 = [8,69]
+>>> lst.extend(lst2)
+>>> lst
+[42, 98, 77, 8, 69]
+>>>
+As we have mentioned, the argument of extend doesn't have to be a list.
+It can be any iterable. This means that we can use tuples and strings as well:
+>>> lst = ["a", "b", "c"]
+>>> programming_language = "Python"
+>>> lst.extend(programming_language)
+>>> print(lst)
+['a', 'b', 'c', 'P', 'y', 't', 'h', 'o', 'n']
+Now with a tuple:
+>>> lst = ["Java", "C", "PHP"]
+>>> t = ("C#", "Jython", "Python", "IronPython")
+>>> lst.extend(t)
+>>> lst
+['Java', 'C', 'PHP', 'C#', 'Jython', 'Python', 'IronPython']
+>>>
+
+Extending and Appending Lists with the '+'-Operator
+There is an alternative to 'append' and 'extend'. '+' can be used to combine lists.
+>>> level = ["beginner", "intermediate", "advanced"]
+>>> other_words = ["novice", "expert"]
+>>> level + other_words
+['beginner', 'intermediate', 'advanced', 'novice', 'expert']
+>>>
+Be careful. Never ever do the following:
+>>> L = [3, 4]
+>>> L = L + [42]
+>>> L
+[3, 4, 42]
+>>>
+Even though we get the same result, it is not an alternative to 'append' and 'extend':
+>>> L = [3, 4]
+>>> L.append(42)
+>>> L
+[3, 4, 42]
+>>>
+>>>
+>>> L = [3, 4]
+>>> L.extend([42])
+>>> L
+[3, 4, 42]
+>>>
+The augmented assignment (+=) is an alternative:
+>>> L = [3, 4]
+>>> L += [42]
+>>> L
+[3, 4, 42]
+
+
+Removing an element with remove
+It is possible to remove with the method "remove" a certain value from a list without knowing the position.
+s.remove(x)
+This call will remove the first occurrence of x from the list s. If x is not contained in the list, a ValueError will be raised. We will call the remove method three times in the following example to remove the colour "green". As the colour "green" occurrs only twice in the list, we get a ValueError at the third time:
+>>> colours = ["red", "green", "blue", "green", "yellow"]
+>>> colours.remove("green")
+>>> colours
+['red', 'blue', 'green', 'yellow']
+>>> colours.remove("green")
+>>> colours
+['red', 'blue', 'yellow']
+>>> colours.remove("green")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+
+
+Find the Position of an Element in a List
+The method "index" can be used to find the position of an element within a list:
+s.index(x[, i[, j]])
+It returns the first index of the value x.
+ A ValueError will be raised, if the value is not present.
+ If the optional parameter i is given, the search will start at the index i. If j is also given, the search will stop at position j.
+>>> colours = ["red", "green", "blue", "green", "yellow"]
+>>> colours.index("green")
+1
+>>> colours.index("green", 2)
+3
+>>> colours.index("green", 3,4)
+3
+>>> colours.index("black")
+Traceback (most recent call last):
+  File "", line 1, in
+ValueError: 'black' is not in list
+>>>
+
+insert
+We have learned that we can put an element to the end of a list by using the method "append".
+ To work efficiently with a list, we need also a way to add elements to arbitrary positions inside of a list.
+ This can be done with the method "insert":
+s.insert(index, object)
+An object "object" will be included in the list "s".
+"object" will be placed before the element s[index].
+s[index] will be "object" and all the other elements will be moved one to the right.
+>>> lst = ["German is spoken", "in Germany,", "Austria", "Switzerland"]
+>>> lst.insert(3, "and")
+>>> lst
+['German is spoken', 'in Germany,', 'Austria', 'and', 'Switzerland']
+>>>
+The functionality of the method "append" can be simulated with insert in the following way:
+>>> abc = ["a","b","c"]
+>>> abc.insert(len(abc),"d")
+>>> abc
+['a', 'b', 'c', 'd']
+>>>
+
+
+#Shallow and Deep Copy
+In the following code snippet, y points to the same memory location than X.
+ We can see this by applying the id() function on x and y.
+
+>>> x = 3
+>>> y = x
+>>> print(id(x), id(y))
+9251744 9251744
+>>> y = 4
+>>> print(id(x), id(y))
+9251744 9251776
+>>> print(x,y)
+3 4
+>>>
+Python creates only real copies, if it has to, i.e. if the user, the programmer, explicitly demands it.
+
+Copying a list
+>>> colours1 = ["red", "blue"]
+>>> colours2 = colours1
+>>> print(colours1)
+['red', 'blue']
+>>> print(colours2)
+['red', 'blue']
+>>> print(id(colours1),id(colours2))
+43444416 43444416
+>>> colours2 = ["rouge", "vert"]
+>>> print(colours1)
+['red', 'blue']
+>>> print(colours2)
+['rouge', 'vert']
+>>> print(id(colours1),id(colours2))
+43444416 43444200
+>>>
+
+In the example above a simple list is assigned to colours1.
+ This list is a so-called "shallow list", because it doesn't have a nested structure, i.e. no sublists are contained in the list.
+ In the next step we assign colour1 to colours2.
+
+The id() function shows us that both variables point to the same list object, i.e. they share this object.
+
+Now we want to see, what happens, if we assign a new list object to colours2.
+
+As we have expected, the values of colours1 remained unchanged.
+ Like it was in our example in the chapter "Data types and variables" a new memory location had been allocated for colours2, because we have assigned a completely new list, i.e. a new list object to this variable.
+  In our example the list object, which is references by both variables, references two string objects,
+   i.e. "red" and "blue".
+Now we have to examine, what will happen, if we change just one element of the list of colours2 or colours1:
+>>> colours1 = ["red", "blue"]
+>>> colours2 = colours1
+>>> print(id(colours1),id(colours2))
+14603760 14603760
+>>> colours2[1] = "green"
+>>> print(id(colours1),id(colours2))
+14603760 14603760
+>>> print(colours1)
+['red', 'green']
+>>> print(colours2)
+['red', 'green']
+>>>
+
+Let's see, what has happened in detail in the previous code.
+ We assigned a new value to the second element of colours2, i.e. the element with the index 1.
+ Lots of beginners will be stunned that the list of colours1 has been "automatically" changed as well.
+ Of course, we don't have two lists: We have only two names for the same list!
+
+The explanation is that we didn't assign a new object to colours2.
+We changed colours2 inside or as it is usually called "in-place".
+Both variables "colours1" and "colours2" still point to the same list object.
+
+
+
+Copy with the Slice Operator
+It's possible to completely copy shallow list structures with the slice operator without having any of the side effects, which we have described above:
+
+>>> list1 = ['a','b','c','d']
+>>> list2 = list1[:]
+>>> list2[1] = 'x'
+>>> print(list2)
+['a', 'x', 'c', 'd']
+>>> print(list1)
+['a', 'b', 'c', 'd']
+>>>
+But as soon as a list contains sublists, we have another difficulty: The sublists are not copied but only the references to the sublists. The following example list "lst2" contains one sublist. We create a shallow copy with the slicing operator.
+>>> lst1 = ['a','b',['ab','ba']]
+>>> lst2 = lst1[:]
+
+
+If you assign a new value to the 0th or the 1st index of one of the two lists, there will be no side effect.
+>>> lst1 = ['a','b',['ab','ba']]
+>>> lst2 = lst1[:]
+>>> lst2[0] = 'c'
+>>> print(lst1)
+['a', 'b', ['ab', 'ba']]
+>>> print(lst2)
+['c', 'b', ['ab', 'ba']]
+
+Problems arise, if you change one of the elements of the sublist:
+>>> lst2[2][1] = 'd'
+>>> print(lst1)
+['a', 'b', ['ab', 'd']]
+>>> print(lst2)
+['c', 'b', ['ab', 'd']]
+
+We can see that both lst1 and lst2 are affected by the assignment lst2[2][1] = 'd':
+
+#Using the Method deepcopy from the Module copy
+A solution to the described problems provide the module "copy".
+This module provides the method "deepcopy", which allows a complete or deep copy of an arbitrary list,
+i.e. shallow and other lists.
+
+Let's use deepcopy for our previous list:
+>>> from copy import deepcopy
+>>>
+>>> lst1 = ['a','b',['ab','ba']]
+>>>
+>>> lst2 = deepcopy(lst1)
+>>>
+>>> lst1
+['a', 'b', ['ab', 'ba']]
+>>> lst2
+['a', 'b', ['ab', 'ba']]
+>>> id(lst1)
+139716507600200
+>>> id(lst2)
+139716507600904
+>>> id(lst1[0])
+139716538182096
+>>> id(lst2[0])
+139716538182096
+>>> id(lst2[2])
+139716507602632
+>>> id(lst1[2])
+139716507615880
+>>>
+We can see by using the id function that the sublist has been copied,
+ because id(lst2[2]) is different from id(lst1[2]).
+ An interesting fact is that the strings are not copied: lst1[0] and lst2[0] reference the same string.
+ This is true for lst1[1] and lst2[1] as well, of course.
+
+>>> lst2[2][1] = "d"
+>>> lst2[0] = "c"
+>>> print(lst1)
+['a', 'b', ['ab', 'ba']]
+>>> print(lst2)
+['c', 'b', ['ab', 'd']]
+>>>
 
 
 
