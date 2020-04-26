@@ -1,11 +1,12 @@
 fileObj=open("fileHandling_Notes/ReadFile.txt","r")
 for line in fileObj:
     print(line.rstrip())
-    '''rstrip() method returns a copy of the string with trailing characters removed (based on the string argument passed). 
-        If no argument is passed, it removes trailing spaces.
-        Syntax :string.rstrip([chars])'''
 fileObj.close()
 
+
+'''rstrip() method returns a copy of the string with trailing characters removed (based on the string argument passed). 
+        If no argument is passed, it removes trailing spaces.
+        Syntax :string.rstrip([chars])'''
 ##################################################################################################
 #Other examples of rstrip()
 string = "pythonnnnn"
