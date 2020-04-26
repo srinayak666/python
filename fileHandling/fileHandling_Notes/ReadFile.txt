@@ -6,11 +6,24 @@ In Python, there is no need for importing external library to read and write fil
 -The way of telling Python that we want to read from a file is to use the open function.
 -The first parameter is the name of the file we want to read and with the second parameter, assigned to the value "r", we state that we want to read from the file:
 
-fobj = open("ad_lesbiam.txt", "r")
+fobj = open("sampleFile.txt", "r")
 
 -The "r" is optional.
 -An open() command with just a file name is opened for reading per default.
 -The open() function returns a file object, which offers attributes and methods.
-fobj = open("ad_lesbiam.txt")
-After we have finished working with a file, we have to close it again by using the file object method close():
+
+fobj = open("sampleFile.txt")
+
+-After we have finished working with a file, we have to close it again by using the file object method close():
+
 fobj.close()
+
+-Now we want to finally open and read a file.
+-The method rstrip() in the following example is used to strip off whitespaces (newlines included) from the right side of the string "line":
+
+fobj = open("sampleFile.txt")
+for line in fobj:
+    print(line.rstrip())
+fobj.close()
+
+refer: ReadFile.py
