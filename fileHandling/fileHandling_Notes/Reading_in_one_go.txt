@@ -1,0 +1,16 @@
+#Reading in one go
+
+-So far we worked on files line by line by using a for loop.
+-Very often, especially if the file is not too large, it's more convenient to read the file into a complete data structure,
+e.g. a string or a list. The file can be closed after reading and the work is accomplished on this data structure:
+
+file = open("samplefile.txt").readlines()
+print(file)
+
+-Another convenient way to read in a file might be the method read() of open.
+-With this method we can read the complete file into a string, as we can see in the next example:
+
+file = open("sample.txt").read()
+print(file[16:34])
+
+This string contains the complete content of the file, which includes the carriage returns and line feeds.
