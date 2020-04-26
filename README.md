@@ -1,9 +1,11 @@
 # python
 Experiments With Python <br/>
 1 HelloWorld.py <br/>
-2 Variables.py<br/>
-3 StringOperations.py<br/>
-4 List.py<br/>
-refer notes directory for Notes associated with above topics <br/>
+package: basic_python <br />
+notes : basic_python/basic_python_Notes <br />
+1 Variables.py<br/>
+2 StringOperations.py<br/>
+3 List.py<br/>
 
-
+package: fileHandling <br />
+notes: FileHandling_Notes.txt
