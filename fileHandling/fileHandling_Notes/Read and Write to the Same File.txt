@@ -1,0 +1,9 @@
+#Read and Write to the Same File
+-In the following example we will open a file for reading and writing at the same time.
+-If the file doesn't exist, it will be created.
+-If you want to open an existing file for read and write, you should better use "r+", because this will not delete the content of the file.
+
+
+
+
+refer:Read_and_Write_to_the_Same_File.py
