@@ -1,7 +1,10 @@
+ #Reading and Writing Files in Python
+
+
 In Python, there is no need for importing external library to read and write files.
  Python provides an inbuilt function for creating, writing and reading files.
 
- #Reading and Writing Files in Python
+
 
 -The way of telling Python that we want to read from a file is to use the open function.
 -The first parameter is the name of the file we want to read and with the second parameter, assigned to the value "r", we state that we want to read from the file:

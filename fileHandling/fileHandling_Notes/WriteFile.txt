@@ -1,0 +1,38 @@
+#Write into a File
+
+-Writing to a file is as easy as reading from a file.
+-To open a file for writing we set the second parameter to "w" instead of "r".
+-To actually write the data into this file, we use the method write() of the file handle object.
+
+-Let's start with a very simple and straightforward example:
+
+fh = open("example.txt", "w")
+fh.write("To write or not to write\nthat is the question!\n")
+fh.close()
+
+-Especially if you are writing to a file, you should never forget to close the file handle again.
+-Otherwise you will risk to end up in a non consistent state of your data.
+
+-You will often find the with statement for reading and writing files.
+-The advantage is that the file will be automatically closed after the indented block after the with has finished execution:
+
+with open("example.txt", "w") as fh:
+    fh.write("To write or not to write\nthat is the question!\n")
+
+-Our ReadFile example can also be rewritten like this with the with statement:
+
+with open("ad_lesbiam.txt") as fobj:
+    for line in fobj:
+        print(line.rstrip())
+
+-Example for simultaneously reading and writing:
+
+fobj_in = open("ad_lesbiam.txt")
+fobj_out = open("ad_lesbiam2.txt","w")
+i = 1
+for line in fobj_in:
+    print(line.rstrip())
+    fobj_out.write(str(i) + ": " + line)
+    i = i + 1
+fobj_in.close()
+fobj_out.close()
