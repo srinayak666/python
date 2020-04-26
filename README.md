@@ -1,7 +1,8 @@
 # python
 Experiments With Python <br/>
 1 HelloWorld.py <br/>
-package: basic_python <br />
+
+package: <u>basic_python</u> <br />
 notes : basic_python/basic_python_Notes <br />
 1 Variables.py (Variables_Strings_notes.txt)<br/>
 2 StringOperations.py (Variables_Strings_notes.txt)<br/>
