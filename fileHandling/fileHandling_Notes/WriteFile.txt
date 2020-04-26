@@ -38,3 +38,5 @@ fobj_in.close()
 fobj_out.close()
 
 -If you want to append something to an existing file, you have to use "a" instead of "w".
+
+refer: WriteFile.py
