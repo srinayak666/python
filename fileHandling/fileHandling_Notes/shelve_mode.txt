@@ -1,0 +1,57 @@
+-One drawback of the pickle module is that it is only capable of pickling one object at the time, which has to be unpickled in one go.
+-Let's imagine this data object is a dictionary.
+-It may be desirable that we don't have to save and load every time the whole dictionary, but save and load just a single value corresponding to just one key.
+-The shelve module is the solution to this request.
+-A "shelf" - as used in the shelve module - is a persistent, dictionary-like object.
+-The difference with dbm databases is that the values (not the keys!) in a shelf can be essentially arbitrary Python objects -- anything that the "pickle" module can handle.
+-This includes most class instances, recursive data types, and objects containing lots of shared sub-objects.
+-The keys have to be strings.
+-The shelve module can be easily used.
+-Actually, it is as easy as using a dictionary in Python.
+-Before we can use a shelf object, we have to import the module.
+-After this, we have to open a shelve object with the shelve method open.
+-The open method opens a special shelf file for reading and writing:
+
+>>> import shelve
+>>> s = shelve.open("MyShelve")
+
+-If the file "MyShelve" already exists, the open method will try to open it.
+-If it isn't a shelf file, - i.e. a file which has been created with the shelve module, - we will get an error message.
+-If the file doesn't exist, it will be created.
+
+-We can use s like an ordinary dictionary, if we use strings as keys:
+
+>>> s["street"] = "Fleet Str"
+>>> s["city"] = "London"
+>>> for key in s:
+...     print(key)
+...
+city
+street
+
+
+A shelf object has to be closed with the close method:
+
+>>> s.close()
+
+-We can use the previously created shelf file in another program or in an interactive Python session:
+$ python3
+Python 3.2.3 (default, Feb 28 2014, 00:22:33)
+[GCC 4.7.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import shelve
+>>> s = shelve.open("MyShelve")
+>>> s["street"]
+'Fleet Str'
+>>> s["city"]
+'London'
+>>>
+
+
+-It is also possible to cast a shelf object into an "ordinary" dictionary with the dict function:
+dict(s)
+refer: ShelveMode.py
+refer: ShelveTest.py
+
+
+

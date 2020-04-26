@@ -1,0 +1,31 @@
+#Pickle module
+
+-we want to prevent any nasty situation, like loosing the data, which your Python program has calculated.
+-So, we will show you, how you can save your data in an easy way that you or better your program can reread them at a later date again.
+-We are "pickling" the data, so that nothing gets lost.
+
+-Python offers for this purpose a module, which is called "pickle".
+ -With the algorithms of the pickle module we can serialize and de-serialize Python object structures.
+ -"Pickling" denotes the process which converts a Python object hierarchy into a byte stream,
+ -and "unpickling" on the other hand is the inverse operation,
+  i.e. the byte stream is converted back into an object hierarchy.
+   What we call pickling (and unpickling) is also known as "serialization" or "flattening" a data structure.
+
+  An object can be dumped with the dump method of the pickle module:
+
+pickle.dump(obj, file[,protocol, *, fix_imports=True])
+
+-dump() writes a pickled representation of obj to the open file object file.
+-The optional protocol argument tells the pickler to use the given protocol:
+-Protocol version 0 is the original (before Python3) human-readable (ascii) protocol and is backwards compatible with previous versions of Python
+-Protocol version 1 is the old binary format which is also compatible with previous versions of Python.
+-Protocol version 2 was introduced in Python 2.3. It provides much more efficient pickling of new-style classes.
+-Protocol version 3 was introduced with Python 3.0. It has explicit support for bytes and cannot be unpickled by Python 2.x pickle modules. It's the recommended protocol of Python 3.x.
+-The default protocol of Python3 is 3.
+-If fix_imports is True and protocol is less than 3, pickle will try to map the new Python3 names to the old module names used in Python2, so that the pickle data stream is readable with Python 2.
+
+-Objects which have been dumped to a file with pickle.dump can be reread into a program by using the method pickle.load(file).
+-pickle.load recognizes automatically, which format had been used for writing the data.
+
+refer: pickle.py
+
