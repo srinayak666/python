@@ -1,0 +1,69 @@
+-One of the popular approach to solve a programming problem is by creating objects.
+-This is known as Object-Oriented Programming (OOP).
+
+An object has two characteristics:
+
+#attributes
+#behavior
+
+Let's take an example:
+
+Parrot is an object,
+-name, age, color are attributes
+-singing, dancing are behavior
+
+-The concept of OOP in Python focuses on creating reusable code.
+-This concept is also known as DRY (Don't Repeat Yourself).
+
+In Python, the concept of OOP follows some basic principles:
+
+#Inheritance	    =A process of using details from a new class without modifying existing class.
+#Encapsulation	    =Hiding the private details of a class from other objects.
+#Polymorphism	    =A concept of using common operation in different ways for different data input.
+
+
+#Class
+-A class is a blueprint for the object.
+-We can think of class as an sketch of a parrot with labels.
+-It contains all the details about the name, colors, size etc.
+-Based on these descriptions, we can study about the parrot.-
+-Here, parrot is an object.
+The example for class of parrot can be :
+
+class Parrot:
+    pass
+
+
+[Note:The pass statement in Python is used when a statement is required syntactically but you do not want any command or code to execute. The pass statement is a null operation; nothing happens when it executes.]
+-Here, we use class keyword to define an empty class Parrot.
+-From class, we construct instances.
+-An instance is a specific object created from a particular class.
+
+
+#Object
+-An object (instance) is an instantiation of a class.
+-When class is defined, only the description for the object is defined.
+-Therefore, no memory or storage is allocated.
+
+The example for object of parrot class can be:
+
+obj = Parrot()
+Here, obj is object of class Parrot.
+
+
+Note:
+__init__ method
+"__init__" is a reseved method in python classes.
+ -It is called as a constructor in object oriented terminology.
+ -This method is called when an object is created from a class and it allows the class to initialize the attributes of the class.
+
+ self inside __init__ method:
+-In the init method, self refers to the newly created object;
+-in other class methods, it refers to the instance whose method was called.
+-Python doesn't force you on using "self". You can give it any name you want.
+-But remember the first argument in a method definition is a reference to the object.
+
+
+refer:classExample.py
+
+
