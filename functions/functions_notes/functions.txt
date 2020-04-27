@@ -1,0 +1,11 @@
+
+#function
+syntax:
+
+def <functionName>(<with or without parameter>):
+    #code goes here
+
+How to call the function?
+<functionName>()
+
+
