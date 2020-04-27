@@ -11,4 +11,5 @@ def function2(x):
 
 #calling function
 function1()
-print(function2(4))
+a=function2(4)
+print(a)
