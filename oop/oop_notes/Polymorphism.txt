@@ -1,0 +1,7 @@
+#Polymorphism
+-Polymorphism is an ability (in OOP) to use common interface for multiple form (data types).
+-Suppose, we need to color a shape, there are multiple shape option (rectangle, square, circle).
+-However we could use same method to color any shape. This concept is called Polymorphism.
+
+
+
