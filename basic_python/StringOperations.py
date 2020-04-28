@@ -1,5 +1,5 @@
 #string common methods
-
+#String is immutable in python
 #Get the index of a substring in a string
 indexValue="someSTring".index("T")
 print(indexValue) # REMEMBER- index starts from 0 so above output will be 5
