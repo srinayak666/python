@@ -1,0 +1,89 @@
+-The logical operators in Python are used to combine the true or false values of variables (or expressions) so you can figure out their resultant truth value.
+-Three logical operators are available in Python:
+
+1. and – returns True only if both operands are true.
+
+In any other case, False will be returned.
+
+For example, the following expression will evaluate to True: 5 < 7 and 5 > 3, because 5 is indeed less than 7 and greater than 3.
+Here is the and operator’s truth table (a table that lists all the possible inputs and the results for the logical operators):
+
+and operator’s truth table
+First operand	Second operand	Result
+True	                True	True
+True	                False	False
+False	                True	False
+False	                False	False
+
+
+Here are a couple of examples:
+
+>>> 5 < 7 and 5 > 3
+True
+>>>
+>>> 3 > 3 and 55 > 30
+False
+>>> 15 / 3 >= 200 and 3 == 3
+False
+>>> 55 == 55 and 3 <= 3
+True
+
+
+2. or – returns True when one or both of the operands are true.
+ For example, the expression 5 < 3 or 3 == 3 will return True because the second operand (3 == 3) evaluates to True.
+  Only if both operands are false will False be returned.
+   The truth table for this operator looks like this:
+
+or operator’s truth table
+First operand	Second operand	Result
+True                	True	True
+True	                False	True
+False	                True	True
+False	                False	False
+
+
+Examples:
+
+>>> 3 == 3 or 5 < 3
+True
+>>> 15 < 3 or 5 > 3
+True
+>>> 12 <= 1 or 5 < 1
+False
+>>> 20 + 3 >= 23 or 5 != 5
+True
+
+3. not – negates the truth value of a single operand.
+In other words, True becomes False and vice versa.
+The truth table here is smaller because only a single operand is used:
+
+not operator’s truth table
+Operand	Result
+True	False
+False	True
+
+
+Examples:
+
+>>> not True
+False
+>>> not False
+True
+>>> not 5 > 3
+False
+>>> not (5 > 3 and 5 > 2)
+False
+>>> not (5 > 3 and 5 < 33)
+False
+>>> not (5 < 3 and 5 < 33)
+True
+
+Let’s expain the last example – not (5 < 3 and 5 < 33) – and why it returns True.
+Simply evaluate the expression in the parentheses first:
+
+5 < 3 – 5 isn’t smaller than 3, so this expression is false.
+5 < 33 – 5 is smaller than 33, so this expression is true.
+
+From the truth table for the and operator above, we know that False and True return False.
+ So the expression 5 < 3 and 5 < 33 will return False.
+ Now, we just need to apply the not operator, so False becomes True.
