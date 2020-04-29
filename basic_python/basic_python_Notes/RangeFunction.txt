@@ -1,0 +1,10 @@
+-range produces a range object that represents a sequence of values.
+-By using the list function, it is possible to see the value of the range object as a list.
+refer: Range_Function.py
+
+The range object represents a sequence of integers.
+By default, it will start with 0.
+If you provide more parameters, it will start and end at particular points and can even skip items.
+In our first example, range(10), the sequence starts with 0 and goes up to but does not include 10.
+In our second example, range(5, 10) starts at 5 and goes up to but not including 10.
+range(5, 10, 2) performs similarly but skips by twos (again, 10 is not included).

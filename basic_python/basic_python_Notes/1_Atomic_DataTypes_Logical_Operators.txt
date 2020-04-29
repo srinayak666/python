@@ -58,3 +58,9 @@ together to form complex logical questions.
 
 print(5 == 10)
 print(10 > 5)
+
+(54).__add__(21)
+Refer: Variable.py
+In this fragment above, we are asking the integer object 54 to execute its add method (called __add__
+in Python) and passing it 21 as the value to add. The result is the sum, 75. Of course, we usually
+write this as 54 + 21.

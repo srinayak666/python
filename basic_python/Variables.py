@@ -39,3 +39,4 @@ print(isinstance(floatingPointNumber,float))
 print(type(a))
 print(type(floatingPointNumber))
 
+print((54).__add__(21)) # O/P: 75

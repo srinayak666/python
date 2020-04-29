@@ -1,0 +1,42 @@
+Operation Name       Operator       Explanation
+indexing                [ ]            Access an element of a sequence
+concatenation            +             Combine sequences together
+repetition               *             Concatenate a repeated number of times
+membership              in             Ask whether an item is in a sequence
+length                  len            Ask the number of items in the sequence
+slicing                [ : ]            Extract a part of a sequence
+
+
+#Some important methods Provided by Lists in Python
+Method                  Name                            Use Explanation
+append                  a_list.append(item)             Adds a new item to the end of a list
+insert                  a_list.insert(i,item)           Inserts an item at the 𝑖th position in a list
+pop                     a_list.pop()                    Removes and returns the last item in a list
+pop                     a_list.pop(i)                   Removes and returns the 𝑖th item in a list
+sort                    a_list.sort()                   Modifies a list to be sorted
+reverse                 a_list.reverse()                Modifies a list to be in reverse order
+del                     del a_list[i]                   Deletes the item in the 𝑖th position
+index                   a_list.index(item)              Returns the index of the first occurrence of item
+count                   a_list.count(item)              Returns the number of occurrences of item
+remove                  a_list.remove(item)             Removes the first occurrence of item
+
+my_list = [1,2,3,4]
+A = [my_list]*3
+print(A)
+my_list[2]=45
+print(A)
+
+The variable A holds a collection of three references to the original list called my_list.
+Note that a change to one element of my_list shows up in all three occurrences in A.
+Lists support a number of methods that will be used to build data structures.
+
+Refer: List_Examples.py
+
+-You can see that some of the methods, such as pop, return a value and also modify the list.
+-Others, such as reverse, simply modify the list with no return value.
+-pop will default to the end of the list but can also remove and return a specific item.
+-The index range starting from 0 is again used for these methods.
+-You should also notice the familiar “dot” notation for asking an object to invoke a method.
+-my_list.append(False) can be read as “ask the object my_list to perform its append method and send it the value False.”
+-Even simple data objects such as integers can invoke methods in this way.
+
