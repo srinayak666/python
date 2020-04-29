@@ -13,6 +13,8 @@ class Parrot:
         return "{} is now dancing".format(self.name)
     def __str__(self):
         return str(self.name)+"---"+str(self.age)
+    def __add__(self, other):
+        return "Data Added"
 
 
 # instantiate the object
@@ -30,3 +32,5 @@ print(blu.__str__()) #O/P: <__main__.Parrot object at 0x00DA1FB8>
 # we can print actual data by overriding __str__ method in class
 print(blu)# object can be printed like this O/P:
 
+#we can also override add method or any other similar methods to perform custom actions
+print(gree+blu) #
