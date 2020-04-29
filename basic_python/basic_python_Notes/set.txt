@@ -1,0 +1,41 @@
+A set is an unordered collection of zero or more immutable Python data objects.
+Sets do not allow duplicates and are written as comma-delimited values enclosed in curly braces.
+The empty set is represented by set().
+Sets are heterogeneous, and the collection can be assigned to a variable as below.
+
+{3,6,"cat",4.5,False}
+{False, 4.5, 3, 6, 'cat'}
+>>> my_set = {3,6,"cat",4.5,False}
+>>> my_set
+{False, 3, 4.5, 6, 'cat'}
+
+
+Operator                 Use                    Explanation
+in                      x.in(set)               Set membership
+len                     len(set)                Returns the cardinality (i.e. the length) of the set
+|                       set1 | set2             Returns a new set with all elements from both sets
+&                       set1 & set2             Returns a new set with only the elements common to both sets
+-                       set1 - set2             Returns a new set with all items from the first set not in second
+<=                      set1 <=                 set2 Asks whether all elements of the first set are in the second
+
+
+Sets support a number of methods that should be familiar to those who have worked with them
+in a mathematics setting.
+ Examples of their use follow.
+ Note
+that union, intersection, issubset, and difference all have operators that can be
+used as well.
+
+Method Name                 Use                        Explanation
+union                   set1.union(set2)                Returns a new set with all elements from both sets
+intersection            set1.intersection(set2)         Returns a new set with only the elements common to both sets
+difference              set1.difference(set2)           Returns a new set with all items from first set not in second
+issubset                set1.issubset(set2)             Asks whether all elements of one set are in the other
+add                     set.add(item)                   Adds item to the set
+remove                  set.remove(item)                Removes item from the set
+pop                     set.pop()                       Removes an arbitrary element from the set
+clear                   set.clear()                     Removes all elements from the set
+
+
+
+refer:Set_Example.py

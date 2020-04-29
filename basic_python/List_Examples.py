@@ -19,6 +19,8 @@ my_list.remove(6.5)
 print(my_list)
 del my_list[0]
 print(my_list)
+
+
 '''
 OUTPUT:
 

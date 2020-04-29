@@ -1,0 +1,24 @@
+Strings are sequential collections of zero or more letters, numbers and other symbols.
+We call these letters, numbers and other symbols characters.
+Literal string values are differentiated from identifiers by using quotation marks (either single or double).
+
+Method Name                   Use                               Explanation
+center                     a_string.center(w)                   Returns a string centered in a field of size 𝑤
+count                      a_string.count(item)                 Returns the number of occurrences of item in the string
+ljust                      a_string.ljust(w)                    Returns a string left-justified in a field of size 𝑤
+lower                      a_string.lower()                     Returns a string in all lowercase
+rjust                      a_string.rjust(w)                    Returns a string right-justified in a field of size 𝑤
+find                       a_string.find(item)                  Returns the index of the first occurrence of item
+split                      a_string.split(s_char)               Splits a string into substrings at s_char
+
+
+split will be very useful for processing data.
+split will take a string and return a list of strings using the split character as a division point.
+In the example, v is the division point.
+If no division is specified, the split method looks for whitespace characters such as tab, newline and space.
+#A major difference between lists and strings is that lists can be modified while strings cannot.
+This is referred to as mutability. Lists are mutable; strings are immutable.
+For example, you can change an item in a list by using indexing and assignment.
+With a string that change is not allowed.
+
+refer:String_Example.py
