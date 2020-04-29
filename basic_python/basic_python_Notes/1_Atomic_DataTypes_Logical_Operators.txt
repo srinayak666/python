@@ -1,0 +1,60 @@
+#Built-in Atomic Data Types
+These Python classes
+are called int and float.
+The standard arithmetic operations, +, −, *, /, and ** (exponentiation),
+can be used with parentheses forcing the order of operations away from normal operator
+precedence.
+Other very useful operations are the remainder (modulo) operator, %, and integer
+division, //.
+ Note that when two integers are divided, the result is a floating point. The integer
+division operator returns the integer portion of the quotient by truncating any fractional part.
+
+#Relational and Logical Operators:
+Operation Name          Operator            Explanation
+less than                   <               Less than operator
+greater than                >               Greater than operator
+less than or equal          <=              Less than or equal to operator
+greater than or equal       >=              Greater than or equal to operator
+equal                       ==              Equality operator
+not equal                   =!              Not equal operator
+logical and                 and             Both operands True for result to be True
+logical or                  or              Either operand True for result to be True
+logical not                 not             Negates the truth value: False becomes
+                                            True, True becomes False
+Examples:
+print(2+3*4) #14
+print((2+3)*4) #20
+print(2**10) #1024
+print(6/3) #2.0
+print(7/3) #2.33333333333
+print(7//3) #2
+print(7%3) #1
+print(3/6) #0.5
+print(3//6) #0
+print(3%6) #3
+print(2**100) # 1267650600228229401496703205376
+
+-The boolean data type, implemented as the Python bool class, will be quite useful for
+representing truth values.
+-The possible state values for a boolean object are True and False
+with the standard boolean operators, and, or, and not.
+
+Examples:
+>>> True
+True
+>>> False
+False
+>>> False or True
+True
+>>> not (False or True)
+False
+>>> True and True
+True
+
+Boolean data objects are also used as results for comparison operators such as equality (==)
+and greater than (>).
+In addition, relational operators and logical operators can be combined
+together to form complex logical questions.
+
+print(5 == 10)
+print(10 > 5)
