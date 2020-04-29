@@ -1,0 +1,73 @@
+f(n)            Name
+1               Constant
+log 𝑛           Logarithmic
+𝑛               Linear
+𝑛 log 𝑛         Log Linear
+𝑛^2              Quadratic
+𝑛^3              Cubic
+2^𝑛              Exponential
+
+
+the functions are not very well defined with respect to one another. It is hard to tell which is
+dominant. However, as 𝑛 grows, there is a definite relationship and it is easy to see how they
+compare with one another.
+
+suppose that we have the fragment of Python code shown below. Although
+this program does not really do anything, it is instructive to see how we can take actual code
+and analyze performance.
+
+a = 5
+b = 6
+c = 10
+    for i in range(n):
+        for j in range(n):
+            x = i * i
+            y = j * j
+            z = i * j
+    for k in range(n):
+        w = a * k + 45
+        v = b * b
+        d = 33
+
+The number of assignment operations is the sum of four terms.
+
+ The first term is the constant 3, representing the three assignment statements at the start of the fragment.
+ The second term is 3𝑛^2, since there are three statements that are performed 𝑛^2 times due to the nested iteration.
+ The third term is 2𝑛, two statements iterated 𝑛 times.
+ Finally, the fourth term is the constant 1, representing the final assignment statement.
+ This gives us
+𝑇(𝑛) = 3 + 3𝑛^2 + 2𝑛 + 1 = 3𝑛^2 + 2𝑛 + 4.
+By looking at the exponents, we can easily see that the 𝑛^2 term will be dominant and therefore this fragment of code is 𝑂(𝑛^2).
+Note that all of the other terms as well as the coefficient on the dominant term can be ignored as 𝑛 grows larger.
+
+Big-O efficiency of Python List:
+
+Operation            Big-O Efficiency
+indexx[]            𝑂(1)
+index assignment    𝑂(1)
+append              𝑂(1)
+pop()               𝑂(1)
+pop(i)              𝑂(𝑛)
+insert(i,item)      𝑂(𝑛)
+del operator        𝑂(𝑛)
+iteration           𝑂(𝑛)
+contains (in)       𝑂(𝑛)
+get slice [x:y]     𝑂(𝑘)
+del slice           𝑂(𝑛)
+set slice           𝑂(𝑛 + 𝑘)
+reverse             𝑂(𝑛)
+concatenate         𝑂(𝑘)
+sort                𝑂(𝑛 log 𝑛)
+multiply            𝑂(𝑛𝑘)
+
+Big-O Efficiency of Python Dictionary Operations
+
+Operation           Big-O Efficiency
+copy                𝑂(𝑛)
+get item            𝑂(1)
+set item            𝑂(1)
+delete item         𝑂(1)
+contains (in)       𝑂(1)
+iteration           𝑂(𝑛)
+
+

@@ -1,0 +1,78 @@
+def sum_of_n(n):
+    the_sum = 0
+        for i in range(1,n+1):
+            the_sum = the_sum + i
+            return the_sum
+print(sum_of_n(10))
+
+
+This function solves a familiar problem, computing the sum of the first 𝑛 integers.
+The algorithm uses the idea of an accumulator variable that is initialized to 0.
+The solution then iterates through the 𝑛 integers, adding each to the accumulator.
+
+import time
+    def sum_of_n_2(n):
+    start = time.time()
+    the_sum = 0
+        for i in range(1, n+1):
+            the_sum = the_sum + i
+       end = time.time()
+       return the_sum,end-start
+
+This code shows the original sum_of_n function with the timing calls embedded before and
+after the summation. The function returns a tuple consisting of the result and the amount of
+time (in seconds) required for the calculation. If we perform 5 invocations of the function,
+each computing the sum of the first 10, 000 integers, we get the following:
+
+>>>for i in range(5):
+print("Sum is %d required %10.7f seconds" % sum_of_n_2(10000))
+Sum is 50005000 required 0.0018950 seconds
+Sum is 50005000 required 0.0018620 seconds
+Sum is 50005000 required 0.0019171 seconds
+Sum is 50005000 required 0.0019162 seconds
+Sum is 50005000 required 0.0019360 seconds
+>>>
+
+Again, the time required for each run, although longer, is very consistent, averaging about 10
+times more seconds. For n equal to 1, 000, 000 we get:
+
+>>>for i in range(5):
+print("Sum is %d required %10.7f seconds" %
+sum_of_n_2(1000000))
+Sum is 500000500000 required 0.1948988 seconds
+Sum is 500000500000 required 0.1850290 seconds
+Sum is 500000500000 required 0.1809771 seconds
+Sum is 500000500000 required 0.1729250 seconds
+Sum is 500000500000 required 0.1646299 seconds
+>>>
+
+In this case, the average again turns out to be about 10 times the previous.
+Now consider the following code, which shows a different means of solving the summation
+problem. This function, sum_of_n_3, takes advantage of a closed equation
+Σ︀𝑛   𝑖 = (𝑛)(𝑛+1)
+𝑖=0
+to compute the sum of the first n integers without iterating.
+
+def sum_of_n_3(n):
+    return (n * (n + 1)) / 2
+print(sum_of_n_3(10))
+
+we do the same benchmark measurement for sum_of_n_3, using five different values for n
+(10, 000, 100, 000, 1, 000, 000, 10, 000, 000, and 100, 000, 000), we get the following results:
+Sum is 50005000 required 0.00000095 seconds
+Sum is 5000050000 required 0.00000191 seconds
+Sum is 500000500000 required 0.00000095 seconds
+Sum is 50000005000000 required 0.00000095 seconds
+Sum is 5000000050000000 required 0.00000119 seconds
+
+
+There are two important things to notice about this output. First, the times recorded above are
+shorter than any of the previous examples. Second, they are very consistent no matter what the
+value of n. It appears that sum_of_n_3 is hardly impacted by the number of integers being
+added.
+
+refer: Big-O_Notation.txt
+
+
+
+
