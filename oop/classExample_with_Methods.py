@@ -11,6 +11,8 @@ class Parrot:
 
     def dance(self):
         return "{} is now dancing".format(self.name)
+    def __str__(self):
+        return str(self.name)+"---"+str(self.age)
 
 
 # instantiate the object
@@ -24,3 +26,7 @@ print(blu.dance())
 # call our instance methods
 print(gree.sing("'La La La'"))
 print(gree.dance())
+print(blu.__str__()) #O/P: <__main__.Parrot object at 0x00DA1FB8>
+# we can print actual data by overriding __str__ method in class
+print(blu)# object can be printed like this O/P:
+
