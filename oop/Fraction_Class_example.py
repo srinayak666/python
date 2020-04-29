@@ -12,7 +12,15 @@ class Fraction:
     def __str__(self):
         return str(self.num) + "/" + str(self.den)
 
+    def __eq__(self, other):
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num == second_num
+
 f1=Fraction(2,3)
 f2=Fraction(3,4)
+f4=Fraction(3,4)
 f3 = f1 + f2
 print(f3)
+print(f1==f2)
+print(f4==f2)
