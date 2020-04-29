@@ -1,0 +1,24 @@
+#Dictionary.
+Dictionaries are collections of associated pairs of items where each pair consists of a key and a value.
+This key-value pair is typically written as key:value.
+Dictionaries are written as comma-delimited key:value pairs enclosed in curly braces.
+
+We can manipulate a dictionary by accessing a value via its key or by adding another key-value pair.
+The syntax for access looks much like a sequence access except that instead of using the index of the item we use the key value.
+To add a new value is similar.
+
+It is important to note that the dictionary is maintained in no particular order with respect to the
+keys. The first pair added ('Utah': 'SaltLakeCity') was placed first in the dictionary
+and the second pair added ('California': 'Sacramento') was placed last. The placement
+of a key is dependent on the idea of “hashing”
+
+Method Name             Use                     Explanation
+keys                   my_dict.keys()           Returns the keys of the dictionary in a dict_keys object
+values                 my_dict.values()         Returns the values of the dictionary in a dict_values object
+items                  my_dict.items()          Returns the key-value pairs in a dict_items object
+get                    my_dict.get(k)           Returns the value associated with 𝑘, None otherwise
+get                    my_dict.get(k,alt)       Returns the value associated with 𝑘, 𝑎𝑙𝑡 otherwise
+
+
+
+refer: Dictionary.py
