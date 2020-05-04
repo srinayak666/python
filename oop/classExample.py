@@ -13,6 +13,7 @@ class Parrot:
 # instantiate the Parrot class
 blu = Parrot(name="Blu", age=10) #can specify with attribute names
 woo = Parrot(age=15,name="Woo") # we can even interchange the values if we specify attribute names
+#this holds good for any functions
 woo.type="Animal"
 blu.functions_ListAgrs(1,2,3,4)
 blu.functions_ListAgrs(1,4)
