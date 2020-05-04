@@ -2,6 +2,11 @@ class Parrot:
     type="bird" #this is class attribute
 
     # instance attribute
+    '''
+    Note: self is a convention and not a real Python keyword. 
+    self is an argument in a method and we can use another name in place of it. 
+    But it is recommended to use self because it increases the readability of  your code.
+    '''
     def __init__(self, name, age):
         self.name = name
         self.age = age
