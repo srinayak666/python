@@ -1,5 +1,5 @@
 #Implementing A Stack in Python
-class Stack:
+class Stack_:
     def __init__(self):
         self.items = []
 
@@ -21,7 +21,7 @@ class Stack:
     def __str__(self):
         return str(self.items)
 
-s = Stack()
+s = Stack_()
 print(s.is_empty())
 s.push(4)
 s.push('dog')
