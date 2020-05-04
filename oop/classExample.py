@@ -9,11 +9,21 @@ class Parrot:
     def functions_ListAgrs(self,*num):
         print(sum(num))
 
+    def functions_DefaultAge(self,name=None,age=10):
+        print("Default Age {} for name {}".format(age,name))
+
 
 # instantiate the Parrot class
 blu = Parrot(name="Blu", age=10) #can specify with attribute names
 woo = Parrot(age=15,name="Woo") # we can even interchange the values if we specify attribute names
 #this holds good for any functions
+
+
+#if we dont specify the age for method functions_DefaultAge() it will take default age as 10
+woo.functions_DefaultAge("Tinku")
+woo.functions_DefaultAge()
+
+
 woo.type="Animal"
 blu.functions_ListAgrs(1,2,3,4)
 blu.functions_ListAgrs(1,4)
