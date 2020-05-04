@@ -6,10 +6,16 @@ class Parrot:
         self.name = name
         self.age = age
 
+    def functions_ListAgrs(self,*num):
+        print(sum(num))
+
+
 # instantiate the Parrot class
 blu = Parrot("Blu", 10)
 woo = Parrot("Woo", 15)
 woo.type="Animal"
+blu.functions_ListAgrs(1,2,3,4)
+blu.functions_ListAgrs(1,4)
 
 # access the class attributes
 print("Blu is a {}".format(blu.__class__.type))

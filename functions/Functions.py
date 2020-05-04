@@ -13,7 +13,6 @@ def function3(x,y):
 
 
 
-
 #calling function
 function1()
 a=function2("4")
@@ -23,3 +22,7 @@ sum=function3(5,5)
 print(sum)
 # calling function2() without argumnet will cause below error:
 '''TypeError: function2() missing 1 required positional argument: 'x' '''
+
+
+
+
