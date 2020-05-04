@@ -25,6 +25,7 @@ class Stack:
         balanced=False
         if len(symbol)%2!=0:
             return False
+
         for character in symbol:
             print("Character is:--"+character)
             if character in '({[':
@@ -34,14 +35,22 @@ class Stack:
                     balanced=False
                 else:
                     top = s.peek()
-                    if character in ')}]':
+                    if top=='(' and character==')':
                         s.pop()
+                        balanced = True
+                    elif top=='{' and character=='}':
+                        s.pop()
+                        balanced = True
+                    elif top=='[' and character==']':
+                        s.pop()
+                        balanced = True
+                    else:
+                        return False
 
 
-        if balanced and s.is_empty():
-            balance=True
-        else:
-            balance=False
+        if s.is_empty() and balanced == True:
+            return True
+
 
         return balanced
 
@@ -53,3 +62,5 @@ s=Stack()
 print(s.par_checker_("{[()]}"))
 print(s.par_checker_("{{([][])}()}"))
 print(s.par_checker_("[{()]}[]"))
+print(s.par_checker_("{}]}"))
+print(s.par_checker_("{[()]}[]"))
