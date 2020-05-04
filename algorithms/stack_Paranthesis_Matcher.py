@@ -27,12 +27,12 @@ class Stack:
             return False
 
         for character in symbol:
-            print("Character is:--"+character)
+            #print("Character is:--"+character)
             if character in '({[':
-                self.push(character)
+                s.push(character)
             else:
                 if s.is_empty():
-                    balanced=False
+                    return False
                 else:
                     top = s.peek()
                     if top=='(' and character==')':
@@ -44,12 +44,11 @@ class Stack:
                     elif top=='[' and character==']':
                         s.pop()
                         balanced = True
-                    else:
-                        return False
 
 
-        if s.is_empty() and balanced == True:
-            return True
+
+        if s.is_empty() and balanced==True:balanced= True
+        else:balanced=False
 
 
         return balanced
@@ -59,8 +58,9 @@ class Stack:
 
 
 s=Stack()
-print(s.par_checker_("{[()]}"))
-print(s.par_checker_("{{([][])}()}"))
-print(s.par_checker_("[{()]}[]"))
-print(s.par_checker_("{}]}"))
-print(s.par_checker_("{[()]}[]"))
+print(s.par_checker_("{[()]}"))#True
+print(s.par_checker_("{{([][])}()}"))#True
+print(s.par_checker_("[{()]}[]"))#False
+print(s.par_checker_("{}]}"))#False
+print(s.par_checker_("{[()]}[]"))#True
+print(s.par_checker_("{[()]}[]}]"))#False
