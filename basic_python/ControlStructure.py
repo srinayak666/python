@@ -1,4 +1,12 @@
 import math
+
+for i in range(1,10,2):
+    print(i)
+
+
+print([x*x for x in range(1,10)])
+
+print([(x if x%2==0 else "NA") for x in range(1,100)])
 #While Condition
 counter = 1
 while counter <= 5:

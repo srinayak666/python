@@ -1,4 +1,4 @@
-capitals = {'Iowa':'DesMoines','Wisconsin':'Madison'}
+capitals = {'Iowa':'DesMoines','Wisconsin':'Madison',None:'Hi',None:"hello","":"","":1}
 print(capitals) #O/P:{'Iowa': 'DesMoines', 'Wisconsin': 'Madison'}
 print(capitals['Iowa']) #O/P: DesMoines
 capitals['Utah']='SaltLakeCity'
@@ -16,6 +16,7 @@ for k in capitals:
     Sacramento  is the capital of  California
     '''
 capitals['Iowa']='SaltLakeCity'
+capitals[None]='SaltLakeCity'
 print(capitals) #O/P:{'Iowa': 'SaltLakeCity', 'Wisconsin': 'Madison', 'Utah': 'SaltLakeCity', 'California': 'Sacramento'}
 
 capitals = {'Iowa':'DesMoines','Wisconsin':'Madison','Iowa':'New Capital'}
